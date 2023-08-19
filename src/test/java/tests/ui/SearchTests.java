@@ -1,4 +1,4 @@
-package tests;
+package tests.ui;
 
 import com.codeborne.selenide.Condition;
 import components.MainPage;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class SearchTests extends TestBase{
+public class SearchTests extends TestBase {
 
     SearchComponent searchComponent = new SearchComponent();
     SearchResultPage searchResultPage = new SearchResultPage();
