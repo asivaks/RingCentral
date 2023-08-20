@@ -20,4 +20,12 @@ public class MainPage {
             $("#onetrust-accept-btn-handler").shouldBe(visible).click();
         }
     }
+
+    @Step("Close cookies preferences window if exists")
+    public void cookiePreferencesWindowCloseIfExists() {
+        if ($("#onetrust-close-btn-container").exists())
+        {
+            $("#onetrust-close-btn-container").shouldBe(visible).click();
+        }
+    }
 }

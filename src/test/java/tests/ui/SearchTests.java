@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class SearchTests extends TestBase {
+public class SearchTests extends UiTestBase {
 
     SearchComponent searchComponent = new SearchComponent();
     SearchResultPage searchResultPage = new SearchResultPage();
@@ -28,6 +28,7 @@ public class SearchTests extends TestBase {
         final String textToSearch = "API";
         mainPage.openPage();
         mainPage.cookieWindowCloseIfExists();
+        mainPage.cookiePreferencesWindowCloseIfExists();
         searchComponent.clickSearchButton();
         searchComponent.inputSearchTextAndSearch(textToSearch);
         searchResultPage.checkSearchTextAndSearch(textToSearch);
@@ -44,6 +45,7 @@ public class SearchTests extends TestBase {
         final String textToSearch = "someweridtextshatshouldnotexist";
         mainPage.openPage();
         mainPage.cookieWindowCloseIfExists();
+        mainPage.cookiePreferencesWindowCloseIfExists();
         searchComponent.clickSearchButton();
         searchComponent.inputSearchTextAndSearch(textToSearch);
         $(".search-coveo__content--empty h1").shouldBe(Condition.visible).shouldHave(Condition.text("No results found"));

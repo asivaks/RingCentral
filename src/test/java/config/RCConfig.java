@@ -15,14 +15,10 @@ public interface RCConfig extends Config {
     @Key("apiUrl")
     String apiUrl();
 
-    @Key("userLogin")
-    String userLogin();
+    @Key("selenoidLogin")
+    String selenoidLogin();
 
-    @Key("userPassword")
-    String userPassword();
-
-    @Key("authCookieName")
-    @DefaultValue("NOPCOMMERCE.AUTH")
-    String authCookieName();
+    @Key("selenoidPassword")
+    String selenoidPassword();
 
 }
