@@ -38,12 +38,13 @@ public class UiTestBase {
 
         System.out.println("capabilities= " + capabilities.asMap());
 
-        //String remoteString = "https://" + credentialsConfig.remoteUser
+        //String remoteString = "http://" + credentialsConfig.remoteUser
         // () + ":" + credentialsConfig.remotePassword() + "@" + credentialsConfig.remoteUrl();
         //String selenoidUrl = "http://<remote-server-ip>:4444/wd/hub";
 
-        String remoteUrl = "89.223.123.173:4444/wd/hub";
-        String remoteString = "http://" + remoteUrl;
+        //String remoteUrl = "89.223.123.173:4444/wd/hub";
+        //String remoteString = "http://" + remoteUrl;
+        String remoteString = System.getProperty("remoteString");
         System.out.println("Connecting to " + remoteString);
         Configuration.remote = remoteString;
     }
