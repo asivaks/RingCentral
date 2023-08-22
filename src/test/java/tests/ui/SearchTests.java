@@ -27,7 +27,7 @@ public class SearchTests extends UiTestBase {
     void positiveSearchTest() {
         final String textToSearch = "API";
         mainPage.openPage();
-        mainPage.cookieWindowCloseIfExists();
+        mainPage.cookieAcceptanceWindowCloseIfExists();
         mainPage.cookiePreferencesWindowCloseIfExists();
         searchComponent.clickSearchButton();
         searchComponent.inputSearchTextAndSearch(textToSearch);
@@ -44,7 +44,7 @@ public class SearchTests extends UiTestBase {
     void negativeSearchTest() {
         final String textToSearch = "someweridtextshatshouldnotexist";
         mainPage.openPage();
-        mainPage.cookieWindowCloseIfExists();
+        mainPage.cookieAcceptanceWindowCloseIfExists();
         mainPage.cookiePreferencesWindowCloseIfExists();
         searchComponent.clickSearchButton();
         searchComponent.inputSearchTextAndSearch(textToSearch);

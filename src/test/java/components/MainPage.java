@@ -1,11 +1,9 @@
 package components;
 
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
     @Step("Open main page")
@@ -13,19 +11,37 @@ public class MainPage {
         open("");
     }
 
-    @Step("Close cookies acceptance window if exists")
-    public void cookieWindowCloseIfExists() {
-        if ($("#onetrust-accept-btn-handler").exists())
-        {
-            $("#onetrust-accept-btn-handler").shouldBe(visible).click();
+    @Step("Accept in cookies acceptance window if exists")
+    public void cookieAcceptanceWindowCloseIfExists() {
+        //if ($("#onetrust-accept-btn-handler").exists()) //will not wait for the element to appear
+        // TODO: 22.08.2023 move this to a separate method, pass locator and wait duration
+        int sleepTimer = 5;
+        while (sleepTimer > 0) {
+            if ($("#onetrust-close-btn-container").exists()) {
+                System.out.println("Clicking on Accept in cookies acceptance window");
+                $("#onetrust-accept-btn-handler").shouldBe(visible).click();
+                break;
+            } else {
+                System.out.println("Waiting for \"#onetrust-accept-btn-handler to appear ");
+                sleep(1000);
+                sleepTimer--;
+            }
         }
     }
 
     @Step("Close cookies preferences window if exists")
     public void cookiePreferencesWindowCloseIfExists() {
-        if ($("#onetrust-close-btn-container").exists())
-        {
-            $("#onetrust-close-btn-container").shouldBe(visible).click();
+        int sleepTimer = 5;
+        while (sleepTimer > 0) {
+            if ($("#onetrust-close-btn-container").exists()) {
+                System.out.println("Clicking on Close in cookies preferences window");
+                $("#onetrust-close-btn-container").shouldBe(visible).click();
+                break;
+            } else {
+                System.out.println("Waiting for \"onetrust-close-btn-container to appear ");
+                sleep(1000);
+                sleepTimer--;
+            }
         }
     }
 }
